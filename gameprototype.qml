@@ -1,8 +1,8 @@
 import QtQuick 2.2
 
 Rectangle {
-    width: 800
-    height: 600
+    width: 960
+    height: 720
 
     Menu {
         id: menu
@@ -15,6 +15,11 @@ Rectangle {
         onGameStopped: parent.state = "menu"
     }
 
+    Settings {
+        id: settings
+        onGameSettings: parent.state = "settings"
+    }
+
     states: [
         State {
             name: "menu"
@@ -22,19 +27,13 @@ Rectangle {
                 target: menu
                 visible: true
             }
+
             PropertyChanges {
                 target: gameplay
                 visible: false
             }
-        },
-        State {
-            name: "settings"
             PropertyChanges {
                 target: settings
-                visible: true
-            }
-            PropertyChanges {
-                target: gameplay
                 visible: false
             }
         },
@@ -48,7 +47,29 @@ Rectangle {
                 target: gameplay
                 visible: true
             }
+            PropertyChanges {
+                target: settings
+                visible: false
+            }
+        },
+        State {
+            name: "settings"
+            PropertyChanges {
+                target: menu
+                visible: false
+            }
+
+            PropertyChanges {
+                target: gameplay
+                visible: false
+            }
+
+            PropertyChanges {
+                target: settings
+                visible: true
+            }
         }
+
     ]
 
     state: "menu"

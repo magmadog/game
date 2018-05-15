@@ -3,16 +3,16 @@ import QtQuick.Layouts 1.0
 
 Rectangle {
     id: menu
-    width: 800
-    height: 600
+    width: 960
+    height: 720
 
     signal gameStarted
 
     Image {
         id: back
-        source: "123.jpg"
-        width: 800
-        height: 600
+        source: "sprites/123.jpg"
+        width: 960
+        height: 720
     }
 
     ColumnLayout {
@@ -24,7 +24,7 @@ Rectangle {
         }
         Button {
             text: "Настройки"
-            onClicked: menu.gameSettings()
+            onClicked: settings.gameSettings()
         }
         Button {
             text: "Выход"
